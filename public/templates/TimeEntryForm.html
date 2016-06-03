@@ -1,0 +1,20 @@
+<form class="form" #timeEntryForm="ngForm" (ngSubmit)="onSubmit(timeEntryForm.value)">
+<div class="form-group">
+    <label class="control-label" for="focusedInput">Description</label>
+    <input class="form-control" id="focusedInput" type="text" placeholder="Enter description" ngControl="description">
+</div>
+
+<div class="form-group">
+    <label class="control-label" for="focusedInput" >Date</label>
+    <input class="form-control" id="date" type="text" placeholder="Enter Date" [(ngModel)]="timesheet.date" (click)='openDatepicker()'  ngControl="date">
+    <div *ngIf="datepickerOpenend">
+        <datepicker [(ngModel)]="date" showWeeks="true" (ngModelChange)='closeDatepicker(date)' ></datepicker>
+    </div>
+</div>
+
+<div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+</form>
+
+<time-entry-list  [(timesheetnew)]="timesheetnew">Loading...</time-entry-list>

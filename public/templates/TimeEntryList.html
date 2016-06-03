@@ -1,0 +1,14 @@
+<div class="row">
+    <table class="table">
+        <tr>
+            <th>Description</th>
+            <th>Date</th>
+            <th>Actions</th>
+        </tr>
+        <tr *ngFor="let timesheet of timesheets">
+        <td>{{timesheet.description}}</td>
+        <td>{{timesheet.date}}</td>
+        <td><span (click)="delete()" class="glyphicon glyphicon-trash"></span></td>
+        </tr>
+    </table>
+</div>
