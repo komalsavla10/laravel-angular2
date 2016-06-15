@@ -8,6 +8,10 @@
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ url('css/bootstrap-flaty.min.css') }}">
 
+    <!-- Required For MODAL POPUP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.js"></script>
+
  <!-- Load libraries -->
             <!-- IE required polyfills, in this exact order -->
             <script src="../node_modules/es6-shim/es6-shim.min.js"></script>
@@ -27,7 +31,8 @@
                             }
                         },
                         map: {
-                            moment: '../node_modules/moment/moment.js'
+                            moment: '../node_modules/moment/moment.js',
+                            'ng2-bs3-modal': '../node_modules/ng2-bs3-modal' /* Required For MODAL POPUP */
                         }
                     });
 
@@ -36,7 +41,12 @@
                             .then(null, console.error.bind(console));
 
                 </script>
+
+                <!-- Required For DatePicker -->
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/ng2-bootstrap/1.0.17/ng2-bootstrap.js"></script>
+                <!-- Required For MODAL POPUP -->
+                <script src="../node_modules/ng2-bs3-modal/bundles/ng2-bs3-modal.js"></script>
+
 
 </head>
 <body>

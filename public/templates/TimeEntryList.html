@@ -8,7 +8,20 @@
         <tr *ngFor="let timesheet of timesheets">
         <td>{{timesheet.description}}</td>
         <td>{{timesheet.date}}</td>
-        <td><span (click)="delete()" class="glyphicon glyphicon-trash"></span></td>
+        <td><span (click)="openModal(timesheet.id)" class="glyphicon glyphicon-trash"></span></td>
         </tr>
     </table>
 </div>
+
+
+<button type="button" class="btn btn-default" (click)="openModal(1)">Open me!</button>
+<modal #modal  [backdrop]="backdrop" (onClose)="closed()" (onDismiss)="dismissed()"
+(onOpen)="opened()">
+<modal-header [show-close]="true">
+<h4 class="modal-title">I'm a modal!</h4>
+</modal-header>
+<modal-body>
+    Hello World!
+</modal-body>
+<modal-footer [show-default-buttons]="true"></modal-footer>
+</modal>

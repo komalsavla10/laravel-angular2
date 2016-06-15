@@ -1,17 +1,43 @@
-import { Component, OnInit, OnChanges, Input } from '../../../../node_modules/@angular/core';
+import { Component, OnInit, OnChanges, Input , ViewChild } from '../../../../node_modules/@angular/core';
+import {CORE_DIRECTIVES} from '@angular/common';
+
+import {AlertComponent, DATEPICKER_DIRECTIVES, MODAL_DIRECTVES, BS_VIEW_PROVIDERS} from '../../../../node_modules/ng2-bootstrap/ng2-bootstrap';
+import { MODAL_DIRECTIVES,ModalComponent } from '../../../../node_modules/ng2-bs3-modal/ng2-bs3-modal';
+
 import { TimesheetService } from './timesheet.service';
-import {AlertComponent, DATEPICKER_DIRECTIVES} from '../../../../node_modules/ng2-bootstrap/ng2-bootstrap';
 
 @Component ( {
     selector: 'time-entry-list',
     templateUrl: 'templates/TimeEntryList.html',
-    directives: [AlertComponent, DATEPICKER_DIRECTIVES],
+    directives: [AlertComponent, DATEPICKER_DIRECTIVES, MODAL_DIRECTVES, CORE_DIRECTIVES, MODAL_DIRECTIVES],
+    viewProviders:[BS_VIEW_PROVIDERS],
     providers: [TimesheetService]
 })
 
 export class EntryListComponent implements OnInit, OnChanges  {
     @Input() timesheetnew: any;
     constructor(private TimesheetService:TimesheetService) {
+    }
+
+    @ViewChild('modal')
+    modal: ModalComponent;
+    backdrop: string | boolean = true;
+
+    closed() {
+        console.log("I AM CLOSED")
+    }
+
+    dismissed() {
+        console.log("I AM DISMISSED")
+    }
+
+    opened() {
+        console.log("I AM OPENED")
+    }
+
+    openModal(id) {
+        console.log("DELETE ID ", id);
+        this.modal.open();
     }
 
     error: any;
@@ -26,7 +52,7 @@ export class EntryListComponent implements OnInit, OnChanges  {
     }
 
     delete() {
-        
+
     }
 
     ngOnInit() {
